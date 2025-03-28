@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seguimiento de Acuerdos</title>
+    <link rel="stylesheet" href="../CSS/seguimiento.css">
+</head>
+<body>
+
+<header>
+    <h1>📋 Seguimiento de Acuerdos</h1>
+</header>
+
+<div class="container">
+    <h2>Lista de Reuniones</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Título</th>
+                <th>Fecha</th>
+                <th>Seguimiento de Acuerdos</th>
+            </tr>
+        </thead>
+        <tbody id="lista-reuniones"></tbody>
+    </table>
+</div>
+
+<div id="modal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="cerrarModal()">&times;</span>
+        <h2>Seguimiento de Acuerdos</h2>
+        <textarea id="acuerdosInput" rows="5" style="width: 100%;"></textarea>
+        <button onclick="guardarAcuerdos()">Guardar</button>
+    </div>
+</div>
+
+<script src="../JS/seguimiento.js"></script>
+
+<footer>
+    <p>&copy; 2025 - Todos los derechos reservados</p>
+    <p><a href="#">Política de Privacidad</a> | <a href="#">Términos y Condiciones</a></p>
+</footer>
+
+</body>
+</html>

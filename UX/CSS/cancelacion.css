@@ -1,0 +1,80 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    background-color: #0033a0;
+    color: white;
+    padding: 20px;
+}
+
+.container {
+    margin: 20px auto;
+    width: 80%;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    flex-grow: 1; /* Esto asegura que el contenedor expanda y ocupe el espacio disponible */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    background-color: #0033a0;
+    color: white;
+}
+
+.cancelada {
+    background-color: #d9534f !important;
+    color: white;
+}
+
+.confirmada {
+    background-color: #28a745 !important;
+    color: white;
+}
+
+button {
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin: 2px;
+    color: white;
+}
+
+.btn-confirmar {
+    background-color: #28a745;
+}
+
+.btn-cancelar {
+    background-color: #d9534f;
+}
+
+footer {
+    background-color: #0033a0;
+    color: white;
+    padding: 10px 0;
+    margin-top: auto; /* Asegura que el footer esté al final */
+}
+
+footer p {
+    margin: 0;
+}

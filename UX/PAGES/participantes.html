@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administración de Reuniones</title>
+    <link rel="stylesheet" href="../CSS/participantes.css">
+</head>
+<body>
+
+<header>
+    <h1>📅 Administración de Reuniones</h1>
+</header>
+
+<div class="container">
+    <h2>📌 Agendar Reunión</h2>
+    <label for="titulo">Participante</label>
+    <input type="text" id="titulo" placeholder="Ingrese el nombre del participante">
+
+    <label for="titulo">Título de la Reunión:</label>
+    <input type="text" id="titulo" placeholder="Ingrese el nombre de la reunión">
+
+    <label for="fecha">Fecha:</label>
+    <input type="date" id="fecha">
+
+    <button onclick="agendarReunion()">Agendar Reunión</button>
+
+    <h2>📋 Reuniones Agendadas</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Título</th>
+                <th>Fecha</th>
+                <th>Estado</th>
+                <th>Participantes</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody id="lista-reuniones"></tbody>
+    </table>
+</div>
+
+<div id="modal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="cerrarModal()">&times;</span>
+        <h2>Participantes</h2>
+        <input type="text" id="participantesInput" placeholder="Ingrese los participantes separados por comas">
+        <button onclick="guardarParticipantes()">Guardar</button>
+    </div>
+</div>
+
+<script src="../JS/participantes.js"></script>
+
+<footer>
+    <p>&copy; 2025 - Todos los derechos reservados</p>
+    <p><a href="#">Política de Privacidad</a> | <a href="#">Términos y Condiciones</a></p>
+</footer>
+
+</body>
+</html>

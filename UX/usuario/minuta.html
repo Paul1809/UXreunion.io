@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../CSS/cssusu/minuta.css">
+    <title>Minutas de Reuniones</title>
+    
+</head>
+<body>
+
+<header>
+    <h1>📄 Minutas de Reuniones</h1>
+</header>
+
+<div class="container">
+    <h2>📜 Lista de Minutas</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Título</th>
+                <th>Fecha</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody id="lista-minutas"></tbody>
+    </table>
+
+    <!-- Botón para regresar al perfil del usuario -->
+    <button class="btn-regresar" onclick="regresarAlPerfil()">Regresar al Perfil</button>
+</div>
+
+<!-- Modal para ver detalles -->
+<div id="modal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="cerrarModal()">&times;</span>
+        <h2>Detalles de la Minuta</h2>
+        <p id="modal-detalle"></p>
+    </div>
+</div>
+
+<!-- Pie de página -->
+<footer>
+    <p>&copy; 2025 - Todos los derechos reservados</p>
+    <p><a href="#">Política de Privacidad</a> | <a href="#">Términos y Condiciones</a></p>
+</footer>
+<script src="../JS/jsusua/minuta.js"></script>
+
+
+
+</body>
+</html>

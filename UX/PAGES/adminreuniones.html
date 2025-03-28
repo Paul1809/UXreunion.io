@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administración de Reuniones</title>
+    <link rel="stylesheet" href="../CSS/adminreu.css">
+</head>
+<body>
+
+<header>
+    <h1> Administración de Reuniones</h1>
+</header>
+
+<div class="container">
+    <h2> Agendar Reunión</h2>
+    <label for="titulo">Título de la Reunión:</label>
+    <input type="text" id="titulo" placeholder="Ingrese el nombre de la reunión">
+
+    <label for="fecha">Fecha:</label>
+    <input type="date" id="fecha">
+
+    <button onclick="agendarReunion()">Agendar Reunión</button>
+
+    <h2> Reuniones Agendadas</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Título</th>
+                <th>Fecha</th>
+                <th>Estado</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody id="lista-reuniones"></tbody>
+    </table>
+</div>
+
+<footer>
+    <p>&copy; 2025 - Todos los derechos reservados</p>
+    <p><a href="#">Política de Privacidad</a> | <a href="#">Términos y Condiciones</a></p>
+</footer>
+
+<script src="../JS/adminreu.js"></script>
+
+</body>
+</html>

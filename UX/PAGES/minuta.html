@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Minutas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Esto asegura que el pie de página esté en la parte inferior */
+        }
+        header {
+            background-color: #0033a0;
+            color: white;
+            padding: 20px;
+        }
+        .container {
+            margin: 20px auto;
+            width: 80%;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            flex-grow: 1; /* Hace que el contenedor crezca para llenar el espacio disponible */
+        }
+        input, textarea, button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #0033a0;
+            color: white;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            width: 50%;
+            text-align: left;
+        }
+        .close {
+            color: red;
+            float: right;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        footer {
+            background-color: #0033a0;
+            color: white;
+            padding: 10px 0;
+            margin-top: auto; /* Asegura que el footer esté al final */
+        }
+        footer p {
+            margin: 0;
+        }
+        footer a {
+            color: white;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>📄 Gestión de Minutas</h1>
+</header>
+
+<div class="container">
+    <h2>Crear Nueva Minuta</h2>
+    <input type="text" id="titulo" placeholder="Título de la reunión">
+    <input type="date" id="fecha">
+    <textarea id="descripcion" placeholder="Resumen de la reunión"></textarea>
+    <button onclick="guardarMinuta()">Guardar Minuta</button>
+</div>
+
+<div class="container">
+    <h2>📜 Minutas Guardadas</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Título</th>
+                <th>Fecha</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody id="lista-minutas"></tbody>
+    </table>
+</div>
+
+<!-- Modal para ver detalles -->
+<div id="modal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="cerrarModal()">&times;</span>
+        <h2>Detalles de la Minuta</h2>
+        <p id="modal-detalle"></p>
+    </div>
+</div>
+
+<script>
+    let minutas = JSON.parse(localStorage.getItem("minutas")) || [];
+
+    function guardarMinuta() {
+        let titulo = document.getElementById("titulo").value;
+        let fecha = document.getElementById("fecha").value;
+        let descripcion = document.getElementById("descripcion").value;
+
+        if (titulo.trim() === "" || fecha.trim() === "" || descripcion.trim() === "") {
+            alert("Todos los campos son obligatorios.");
+            return;
+        }
+
+        let nuevaMinuta = {
+            id: minutas.length + 1,
+            titulo: titulo,
+            fecha: fecha,
+            descripcion: descripcion
+        };
+
+        minutas.push(nuevaMinuta);
+        localStorage.setItem("minutas", JSON.stringify(minutas));
+        document.getElementById("titulo").value = "";
+        document.getElementById("fecha").value = "";
+        document.getElementById("descripcion").value = "";
+        mostrarMinutas();
+    }
+
+    function mostrarMinutas() {
+        let listaMinutas = document.getElementById("lista-minutas");
+        listaMinutas.innerHTML = "";
+
+        minutas.forEach((minuta, index) => {
+            let fila = document.createElement("tr");
+            fila.innerHTML = `
+                <td>${minuta.id}</td>
+                <td>${minuta.titulo}</td>
+                <td>${minuta.fecha}</td>
+                <td>
+                    <button onclick="verMinuta(${index})">📄 Ver</button>
+                    <button onclick="eliminarMinuta(${index})" style="background-color:#d9534f;">🗑 Eliminar</button>
+                </td>
+            `;
+            listaMinutas.appendChild(fila);
+        });
+    }
+
+    function verMinuta(index) {
+        let minuta = minutas[index];
+        document.getElementById("modal-detalle").innerHTML = ` 
+            <strong>Título:</strong> ${minuta.titulo} <br>
+            <strong>Fecha:</strong> ${minuta.fecha} <br>
+            <strong>Resumen:</strong> ${minuta.descripcion}
+        `;
+        document.getElementById("modal").style.display = "flex";
+    }
+
+    function cerrarModal() {
+        document.getElementById("modal").style.display = "none";
+    }
+
+    function eliminarMinuta(index) {
+        if (confirm("¿Seguro que deseas eliminar esta minuta?")) {
+            minutas.splice(index, 1);
+            localStorage.setItem("minutas", JSON.stringify(minutas));
+            mostrarMinutas();
+        }
+    }
+
+    document.addEventListener("DOMContentLoaded", mostrarMinutas);
+</script>
+
+<footer>
+    <p>&copy; 2025 - Todos los derechos reservados</p>
+    <p><a href="#">Política de Privacidad</a> | <a href="#">Términos y Condiciones</a></p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil de Administrador</title>
+    <link rel="stylesheet" href="../CSS/perfiladmin.css">
+</head>
+<body>
+
+<header>
+    <h1>👤 Perfil de Administrador</h1>
+</header>
+
+<nav>
+    <a href="../PAGES/login.html">Cerrar Sesión</a>
+</nav>
+
+<div class="container">
+    <h2>Bienvenido, <span id="admin-name">Paul</span></h2>
+
+    <!-- Tabla de información -->
+    <table class="profile-table">
+        <tr>
+            <th>Nombre</th>
+            <td id="admin-name-table">Paul</td>
+        </tr>
+        <tr>
+            <th>Localidad</th>
+            <td id="admin-location">Nezahualcóyotl</td>
+        </tr>
+        <tr>
+            <th>Rol</th>
+            <td>Administrador</td>
+        </tr>
+    </table>
+
+    <button class="edit-btn" onclick="openModal()">✏️ Editar Perfil</button>
+
+    <section class="actions">
+        <div class="btn-box" onclick="window.location.href='../PAGES/adminreuniones.html'">📅 Reuniones</div>
+        <div class="btn-box" onclick="window.location.href='../PAGES/calendarioreuniones.html'">📆 Calendario</div>
+        <div class="btn-box" onclick="window.location.href='../PAGES/seguimiento.html'">🔍 Seguimiento</div>
+        <div class="btn-box" onclick="window.location.href='../PAGES/asignacionreuniones.html'">📌 Asignar</div>
+        <div class="btn-box" onclick="window.location.href='../PAGES/participantes.html'">👥 Participantes</div>
+        <div class="btn-box" onclick="window.location.href='../PAGES/minuta.html'">📝 Minuta</div>
+        <div class="btn-box" onclick="window.location.href='../PAGES/cancelacion.html'">❌ Cancelar</div>
+        <div class="btn-box" onclick="window.location.href='../PAGES/comentarios.html'">📝 Comentarios</div>
+        <div class="btn-box" onclick="window.location.href='../PAGES/adminusuarios.html'">🔍 Administrar usuarios</div>
+    </section>
+</div>
+
+<footer>
+    <p>© 2025 Sistema de Gestión de Reuniones | Todos los derechos reservados</p>
+</footer>
+
+<script>
+    function openModal() {
+        alert("Función de edición en desarrollo...");
+    }
+</script>
+
+</body>
+</html>

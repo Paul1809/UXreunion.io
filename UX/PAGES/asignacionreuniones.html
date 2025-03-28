@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asignación de Reuniones</title>
+    <link rel="stylesheet" href="../CSS/asigreu.css">
+</head>
+<body>
+
+<header>
+    <h1>📌 Asignación de Reuniones</h1>
+</header>
+
+<div class="container">
+    <h2>Agregar Participante</h2>
+    <input type="text" id="nombre-participante" placeholder="Nombre del participante">
+    <button onclick="agregarParticipante()">Agregar</button>
+
+    <h2>📋 Reuniones y Asignaciones</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Título</th>
+                <th>Fecha</th>
+                <th>Participantes</th>
+                <th>Asignar</th>
+            </tr>
+        </thead>
+        <tbody id="lista-reuniones"></tbody>
+    </table>
+</div>
+
+<footer>
+    <p>&copy; 2025 - Todos los derechos reservados</p>
+    <p><a href="#">Política de Privacidad</a> | <a href="#">Términos y Condiciones</a></p>
+</footer>
+
+<script src="../JS/asigreu.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../CSS/cssusu/perfilusua.css">
+    <title>Perfil de Usuario</title>
+    
+</head>
+<body>
+
+<header>
+    <h1>👤 Perfil de Usuario</h1>
+</header>
+
+<nav>
+   
+    <a href="../PAGES/login.html">Cerrar Sesión</a>
+</nav>
+
+<div class="container">
+    <h2>Bienvenido, <span id="user-name">Juan Pérez</span></h2>
+
+    <!-- Tabla de información -->
+    <table class="profile-table">
+        <tr>
+            <th>Nombre</th>
+            <td id="user-name-table">Juan Pérez</td>
+        </tr>
+        <tr>
+            <th>Localidad</th>
+            <td id="user-location">Iztapalapa</td>
+        </tr>
+        <tr>
+            <th>Rol</th>
+            <td>Usuario</td>
+        </tr>
+    </table>
+
+    <button class="edit-btn" onclick="openModal()">✏️ Editar Perfil</button>
+
+    <section class="actions">
+        <div class="btn-box" onclick="window.location.href='../usuario/ver_reuniones.html'">
+            📅 Reuniones
+        </div>
+        <div class="btn-box" onclick="window.location.href='../usuario/confirmar.html'">
+            ✅ Confirmar
+        </div>
+        <div class="btn-box" onclick="window.location.href='../usuario/seguimiento.html'">
+            🔍 Seguimiento
+        </div>
+        <div class="btn-box" onclick="window.location.href='../usuario/calendario.html'">
+            📆 Calendario
+        </div>
+        <div class="btn-box" onclick="window.location.href='../usuario/minuta.html'">
+            📝 Minuta
+        </div>
+        <div class="btn-box" onclick="window.location.href='../usuario/comentarios.html'">
+            📝 Comentarios
+        </div>
+    </section>
+</div>
+
+<!-- Modal para editar perfil -->
+<div class="modal" id="editModal">
+    <div class="modal-content">
+        <h2>Editar Perfil</h2>
+        <label>Nombre:</label>
+        <input type="text" id="edit-name" value="Juan Pérez">
+        <label>Localidad:</label>
+        <input type="text" id="edit-location" value="Iztapalapa">
+        <br>
+        <button class="save-btn" onclick="saveChanges()">Guardar</button>
+        <button class="cancel-btn" onclick="closeModal()">Cancelar</button>
+    </div>
+</div>
+
+<footer>
+    <p>© 2025 Sistema de Gestión de Reuniones | Todos los derechos reservados</p>
+</footer>
+<script src="../JS/jsusua/perfilusua.js"></script>
+
+
+</body>
+</html>

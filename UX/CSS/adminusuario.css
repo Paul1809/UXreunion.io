@@ -1,0 +1,102 @@
+/* Estilos generales para asegurar que el contenido se vea correctamente */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilo del body para ajustar el layout */
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Asegura que el cuerpo ocupe todo el alto de la pantalla */
+    background-color: #f4f4f4;
+}
+
+/* Estilos del Header */
+header {
+    background-color: #003366;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+/* Estilos del Footer */
+footer {
+    background-color: #003366;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    margin-top: auto; /* Asegura que el footer se quede en el fondo */
+}
+
+/* Panel de administración */
+.admin-panel {
+    flex-grow: 1; /* Esto asegura que el contenido del panel crezca para llenar el espacio disponible */
+    padding: 20px;
+    margin: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo para el título del panel */
+.admin-panel h2 {
+    color: #003366;
+    margin-bottom: 20px;
+}
+
+/* Estilos de la lista de usuarios */
+#userList {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.user-card {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+/* Estilo de los botones dentro de cada tarjeta */
+.user-card button {
+    background-color: #0099ff;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 12px;
+    margin-right: 10px;
+}
+
+.user-card button:hover {
+    background-color: #007acc;
+}
+
+/* Diseño responsivo para pantallas más pequeñas */
+@media (max-width: 600px) {
+    .admin-panel {
+        margin: 10px;
+        padding: 15px;
+    }
+
+    .user-card button {
+        font-size: 10px;
+        padding: 6px 12px;
+    }
+}
