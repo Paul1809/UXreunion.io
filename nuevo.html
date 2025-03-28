@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reuniones Web</title>
+    <link rel="stylesheet" href="../CSS/layout.css">
+    <link rel="stylesheet" href="../CSS/base.css">
+    <link rel="stylesheet" href="../CSS/seguimiento.css">
+    <link rel="stylesheet" href="../CSS/table.css">
+    <link rel="stylesheet" href="../CSS/button.css">
+    <link rel="stylesheet" href="../CSS/form.css">
+    <style>
+        /* Estilos añadidos para asegurar que el footer esté al final */
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Hace que el footer quede al final si el contenido no llena toda la página */
+        }
+        main.content {
+            flex-grow: 1; /* Permite que el contenido ocupe el espacio restante */
+        }
+        footer.footer {
+            background-color: #0033a0;
+            color: white;
+            padding: 10px 0;
+            margin-top: auto; /* Coloca el footer al final */
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <h1>Reuniones Web</h1>
+        <button class="salir">Salir</button>
+    </header>
+
+    <nav class="nav-links">
+        <a href="#">Inicio</a>
+        <a href="#">Nueva</a>
+        <a href="seguimiento.html">Seguimiento</a>
+        <a href="#">Histórico</a>
+        <a href="#">Imprimir</a>
+    </nav>
+
+    <main class="content">
+        <h2>Reunion</h2>
+        <form>
+            <div class="row">
+                <select><option>Grupo</option></select>
+                <select><option>Turno</option></select>
+            </div>
+            <div class="row">
+                <label>Asunto</label>
+                <input type="text" placeholder="Asunto">
+                <label>Lugar</label>
+                <input type="text" placeholder="Lugar">
+            </div>
+            <div class="row">
+                <label>Tipo de Reunión</label>
+                <input type="text" value="EXTEMPORANEA" readonly>
+            </div>
+            <div class="row">
+                <label>Fecha</label>
+                <input type="date">
+                <label>Hora inicio</label>
+                <input type="time">
+                <label>Hora fin</label>
+                <input type="time">
+            </div>
+            <div class="row">
+                <label>Clave Empleado</label>
+                <input type="text" placeholder="Clave">
+                <label>Convocado</label>
+                <input type="text" placeholder="Convocado">
+            </div>
+            <div class="buttons">
+                <button class="btn aceptar">Aceptar</button>
+                <button class="btn cancelar">Cancelar</button>
+            </div>
+        </form>
+    </main>
+
+    <!-- TERMINA EL CUERPO EL CUERPO-->
+    <footer class="footer">
+        <div class="info-box">
+            <span>Usuario</span>
+            <div class="info-content">José</div>
+        </div>
+        <div class="info-box">
+            <span>Localidad</span>
+            <div class="info-content">Nezahualcóyotl</div>
+        </div>
+    </footer>
+
+</body>
+</html>

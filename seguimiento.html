@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmar Asistencia y Seguimiento</title>
+    <link rel="stylesheet" href="../CSS/cssusu/seguimiento.css">
+</head>
+<body>
+
+<header>
+    <h1>📅 Confirmar Asistencia y Seguimiento de Acuerdos</h1>
+</header>
+
+<div class="container">
+    <h2>Lista de Reuniones</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Título</th>
+                <th>Fecha</th>
+                <th>Asistencia</th>
+                <th>Seguimiento de Acuerdos</th>
+                <th>Acción</th>
+            </tr>
+        </thead>
+        <tbody id="lista-reuniones"></tbody>
+    </table>
+
+    <!-- Botón para regresar al perfil del usuario -->
+    <button class="btn-regresar" onclick="regresarAlPerfil()">Regresar al Perfil</button>
+</div>
+
+<!-- Modal para mostrar el seguimiento de acuerdos -->
+<div id="modal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="cerrarModal()">&times;</span>
+        <h2>Seguimiento de Acuerdos</h2>
+        <p id="acuerdosTexto" class="acuerdos-box"></p>
+    </div>
+</div>
+
+<script src="../JS/jsusua/seguimiento.js"></script>
+
+<!-- Pie de página -->
+<footer>
+    <p>&copy; 2025 - Todos los derechos reservados</p>
+    <p><a href="#">Política de Privacidad</a> | <a href="#">Términos y Condiciones</a></p>
+</footer>
+
+</body>
+</html>

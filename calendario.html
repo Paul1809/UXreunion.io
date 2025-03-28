@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../CSS/cssusu/calendario.css">
+    <title>Calendario de Reuniones</title>
+   
+</head>
+<body>
+
+<header>
+    <h1>📅 Calendario de Reuniones</h1>
+</header>
+
+<div class="container">
+    <div class="controls">
+        <button class="btn" onclick="cambiarMes(-1)">◀ Mes Anterior</button>
+        <h2 id="mes-actual"></h2>
+        <button class="btn" onclick="cambiarMes(1)">Mes Siguiente ▶</button>
+    </div>
+
+    <div class="calendar" id="calendario"></div>
+
+    <!-- Botón para volver al perfil -->
+    <div class="controls">
+        <button class="btn" onclick="volverAlPerfil()"> Volver al Perfil</button>
+    </div>
+</div>
+
+<!-- Ventana Modal -->
+<div id="modal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="cerrarModal()">&times;</span>
+        <h2>Detalles de la Reunión</h2>
+        <p id="modal-detalle"></p>
+        <button id="btn-minuta" class="btn-minuta" onclick="mostrarMinuta()">📄 Ver Minuta</button>
+        <div id="minuta-texto" class="minuta-texto"></div>
+    </div>
+</div>
+<script src="../JS/jsusua/calendario.js"></script>
+<footer>
+    <p>&copy; 2025 - Todos los derechos reservados</p>
+    <p><a href="#">Política de Privacidad</a> | <a href="#">Términos y Condiciones</a></p>
+</footer>
+
+</body>
+</html>

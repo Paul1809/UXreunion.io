@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administrar Usuarios</title>
+    <link rel="stylesheet" href="../CSS/adminusuario.css">
+</head>
+<body>
+
+    <header>
+        <h1>Administración de Usuarios</h1>
+    </header>
+
+    <div class="admin-panel">
+        <h2>Panel de Administración de Usuarios</h2>
+        <div id="userList"></div>
+    </div>
+
+    <footer>
+        <p>© 2025 Sistema de Gestión de Usuarios | Todos los derechos reservados</p>
+    </footer>
+
+    <script>
+        // Función para mostrar todos los usuarios registrados
+        function mostrarUsuarios() {
+            const usuarios = JSON.parse(localStorage.getItem("users")) || [];
+            const listaUsuarios = document.getElementById("userList");
+
+            if (usuarios.length === 0) {
+                listaUsuarios.innerHTML = "<p>No hay usuarios registrados.</p>";
+                return;
+            }
+
+            listaUsuarios.innerHTML = '';
+            usuarios.forEach((usuario, index) => {
+                let div = document.createElement("div");
+                div.classList.add("user-card");
+
+                div.innerHTML = `
+                    <p>Correo: ${usuario.email}</p>
+                    <p>Rol: ${usuario.isAdmin ? 'Administrador' : 'Usuario'}</p>
+                    <button onclick="verPerfil(${index})">Ver Perfil</button>
+                    <button onclick="cambiarRol(${index})">${usuario.isAdmin ? 'Quitar Admin' : 'Hacer Admin'}</button>
+                    <button onclick="eliminarUsuario(${index})">Eliminar</button>
+                `;
+                listaUsuarios.appendChild(div);
+            });
+        }
+
+        // Función para ver el perfil de un usuario
+        function verPerfil(index) {
+            const usuarios = JSON.parse(localStorage.getItem("users")) || [];
+            const usuario = usuarios[index];
+            alert(`Perfil del usuario:\nCorreo: ${usuario.email}\nRol: ${usuario.isAdmin ? 'Administrador' : 'Usuario'}`);
+        }
+
+        // Función para cambiar el rol de un usuario
+        function cambiarRol(index) {
+            const usuarios = JSON.parse(localStorage.getItem("users")) || [];
+            usuarios[index].isAdmin = !usuarios[index].isAdmin;
+            localStorage.setItem("users", JSON.stringify(usuarios));
+            mostrarUsuarios(); // Actualizar la lista
+        }
+
+        // Función para eliminar un usuario
+        function eliminarUsuario(index) {
+            const usuarios = JSON.parse(localStorage.getItem("users")) || [];
+            usuarios.splice(index, 1);
+            localStorage.setItem("users", JSON.stringify(usuarios));
+            mostrarUsuarios(); // Actualizar la lista
+        }
+
+        // Llamar a la función para mostrar los usuarios al cargar la página
+        window.onload = mostrarUsuarios;
+    </script>
+
+</body>
+</html>

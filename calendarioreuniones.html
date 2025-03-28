@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendario de Reuniones (Administrador)</title>
+    <link rel="stylesheet" href="../CSS/calendario.css">
+</head>
+<body>
+
+<header>
+    <h1>Calendario de Reuniones (Administrador)</h1>
+</header>
+
+<div class="container">
+    <div class="controls">
+        <button class="btn" onclick="cambiarMes(-1)" id="mes-anterior">◀ Mes Anterior</button>
+        <h2 id="mes-actual"></h2>
+        <button class="btn" onclick="cambiarMes(1)" id="mes-siguiente">Mes Siguiente ▶</button>
+    </div>
+
+    <div class="calendar" id="calendario"></div>
+</div>
+
+<!-- Ventana Modal -->
+<div id="modal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="cerrarModal()">&times;</span>
+        <h2>Detalles de la Reunión</h2>
+        <p id="modal-detalle"></p>
+        <div class="minuta-container" id="minuta-container">
+            <h3>Minuta</h3>
+            <textarea id="minuta-text" class="minuta-text" placeholder="Escribe la minuta aquí..."></textarea>
+            <button class="btn" onclick="guardarMinuta()">💾 Guardar Minuta</button>
+        </div>
+        <div>
+            <h3>Estado de la Reunión:</h3>
+            <select id="estado-reunion" onchange="cambiarEstadoReunion()">
+                <option value="Pendiente">Pendiente</option>
+                <option value="Confirmada">Confirmada</option>
+                <option value="Cancelada">Cancelada</option>
+            </select>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2025 - Todos los derechos reservados</p>
+    <p><a href="#">Política de Privacidad</a> | <a href="#">Términos y Condiciones</a></p>
+</footer>
+
+<script src="../JS/calendario.js"></script>
+
+</body>
+</html>
